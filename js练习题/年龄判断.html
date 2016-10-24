@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            list-style: none;
+        }
+        #container {
+            width: 200px;
+            height: 40px;
+            margin: 50px auto;
+            position: relative;
+            background: #cccccc;
+            color: black;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+
+    <script>
+
+        var oContainer=document.getElementById("container")
+        var age;
+        age = prompt("请输入你的年龄:","18");
+        if(age<14){
+            oContainer.innerHTML=("你是儿童");
+        }
+        if(age<24){
+            oContainer.innerHTML=("你是少年");
+        }
+        if(age<40){
+            oContainer.innerHTML=("你是青少年");
+        }
+        if(age<60){
+            oContainer.innerHTML=("你是中年");
+        }
+        else {
+            oContainer.innerHTML = ("你是老年");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #container{
+            margin: 50px auto;
+            width: 1000px;
+            height: 40px;
+            background: #cccccc;
+            color: #000000;
+            text-align: center;
+            line-height: 40px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+
+</div>
+
+    <script>
+        var d;
+        var oContainer =document.getElementById("container")
+     function showDate() {
+          d = new Date();
+//         if(d.getMonth()>=0){
+//             var iM= parseInt(d.getMonth())+1;
+//         }
+         oContainer.innerHTML=("现在是" + d.getFullYear() + "年" + (d.getMonth()+1)+ "月" + d.getDate() + "日" + d.getHours() + "时"
+                 + d.getMinutes() + "分" + d.getSeconds() + "秒" + "(" + "星期" + d.getDay() + ")" + "&nbsp欢迎您的光临!");
+     }
+        setInterval(function (){
+            showDate();
+
+        },1)
+    </script>
+
+</body>
+</html>

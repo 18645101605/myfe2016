@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    请输入任意一个数<input type="text" id="x"/><br>
+    请输入任意一个数<input type="text" id="y"/><br>
+    <input type="button" id="commit" value="提交"/><br>
+    <script type="text/javascript">
+
+        window.onload = function () {
+            var oX = document.getElementById("x");
+            var oY = document.getElementById("y");
+            var oCom = document.getElementById("commit");
+            oCom.onclick = function Min () {
+                oX = parseInt(oX.value);
+                oY = parseInt(oY.value);
+                document.write(oX<oY?oX:oY);
+//                if (oX < oY)
+//                    document.write(oX);
+//                else
+//                    document.write(oY);
+//
+
+            }
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>

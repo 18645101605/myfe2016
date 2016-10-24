@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            list-style: none;
+        }
+        #container{
+            width: 200px;
+            height: 40px;
+            margin: 50px auto;
+            position: relative;
+            background: #cccccc;
+            color: black;
+            text-align: center;
+            line-height: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+
+    <script>
+        var oContainer=document.getElementById("container")
+        var sum =1;
+        var sum1 =0;
+        for(var i=1;i<=10;i++){
+            sum*=i;
+            sum1+=sum;
+        }
+        oContainer.innerHTML=("1!+2!+...+10!="+sum1);
+    </script>
+
+</body>
+</html>
