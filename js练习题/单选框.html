@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form name="myForm">
+    <input type="radio" value="1" name="1">1
+    <input type="radio" value="2" name="1">2
+    <input type="radio" value="3" name="1">3
+    <input type="radio" value="4" name="1">4
+</form>
+    <script>
+        var oFm =document.getElementById("form");
+        var aRa =oFm.getElementsByTagName("input") ;
+        oFm.onchange=function(){
+            for(var i=0;i<aRa.length;i++){
+                if(aRa[i].checked){
+                    alert(aRa[i].value);}}}
+
+
+    </script>
+
+</body>
+</html>

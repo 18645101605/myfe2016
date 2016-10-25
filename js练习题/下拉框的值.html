@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            list-style: none;
+        }
+
+
+    </style>
+</head>
+<body>
+<form >
+    <select name="select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+        <input  type="text" name="txt" >
+        <input  type="text" name="val">
+</form>
+<script>
+    var oTxt =document.getElementsByName("txt")[0];
+    var oVal =document.getElementsByName("val")[0];
+    var oSel=document.getElementsByName("select")[0];
+    var aOp =oSel.getElementsByTagName('option');
+
+    oSel.onchange=function(){
+        for(var i=0;i<aOp.length;i++)
+            if(aOp[i].selected){
+                oTxt.value=aOp[i].innerHTML;
+                oVal.value=aOp[i].value;
+            }
+    }
+
+//    var oSel = document.getElementsByName("sel")[0];
+//    var aOp = oSel.getElementsByTagName('option');
+//    var oVv = document.getElementsByName("vv")[0];
+//    var oContent = document.getElementsByName("content")[0];
+//
+//    oSel.onchange = function(){
+//        for(var i=0;i<aOp.length;i++){
+//            if(aOp[i].selected){
+//                oVv.value =  aOp[i].value;
+//                oContent.value = aOp[i].innerHTML;
+//            }
+//        }
+//        alert(document.myForm.sel);
+//        oVv.value = this.value;
+//        oContent.value = document.myForm.sel.text;
+
+//    document.getElementById("txt").innerHTML=oSel.options[oSel.selectedIndex].text;
+//    document.getElementById("val").innerHTML=oSel.value;
+//
+//    oSel.onchange=function(){
+//        document.getElementById("txt").innerHTML=oSel.options[oSel.selectedIndex].text;
+//        document.getElementById("val").innerHTML=oSel.value;
+
+
+
+</script>
+
+</body>
+</html>
