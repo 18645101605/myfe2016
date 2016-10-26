@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body{
+        font:normal 12px/17px Arial;
+    }
+    div{
+        padding: 2px;
+    }
+    input,textarea{
+        width: 12em;
+        border: 1px solid #888;
+    }
+    .focus{
+        border: 1px solid #f00;
+        background: #fcc;
+    }
+</style>
+<body>
+    <form name="myForm">
+        <fieldset>
+            <legend>个人基本信息</legend>
+            <div>
+                用户名：<input type="text" name="username" value="张三"/><br>
+                密码 &nbsp&nbsp  ：<input type="password" name="psword" value="123" /><br>
+                详细信息：<input type="textarea" name="txt" value="请输入详细信息"/>
+            </div>
+        </fieldset>
+    </form>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+//           $("input,textarea").on("focus",function(){
+//              $("input").addClass("focus");
+//              $("textarea").addClass("focus");
+//           })
+            $("input").on("focus",function(){
+                $(this).addClass("focus").attr("value","");
+            }).on("blur",function(){
+                $(this).removeClass("focus").attr("value",function(){
+                   //console.log($(this).name);
+                    if($(this).prop("name")=="username"){
+                        return "张三";
+                    }else if($(this).prop("name")=="psword"){
+                        return "123";
+                    }else{
+                        return "请输入详细信息";
+                    }
+                });
+            })
+
+       });
+    </script>
+
+</body>
+</html>
