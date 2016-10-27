@@ -22,10 +22,10 @@
         $(function(){
             $("#checkedAll").on("click",function(){
                 $("input[name='items']").prop("checked",true);//attr（）与checked同用时存在bug，故此时只可用prop（）。
-            })
+            });
             $("#checkedNo").on("click",function(){
                 $("input[name]").prop("checked",false);
-            })
+            });
             $("#checkedRev").on("click",function(){
                $("input[name]").each(function(index,elem){
                    if($(this).prop("checked")){
