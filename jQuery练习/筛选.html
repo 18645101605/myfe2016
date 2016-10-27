@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table{
+            border:0;
+            border-collapse:collapse;
+        }
+
+        td	{
+            font:normal 12px/17px Arial;
+            padding:2px;
+            width:100px;
+        }
+        th	{
+            font:bold 12px/17px Arial;
+            text-align:left;
+            padding:4px;
+            border-bottom:1px solid #333;
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    筛选：<input type="text" id="screen">
+    <thead>
+        <tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+    </thead>
+    <tbody>
+        <tr ><td>张三</td><td>男</td><td>宁波</td></tr>
+        <tr ><td>李斯</td><td>女</td><td>杭州</td></tr>
+        <tr ><td>王武</td><td>男</td><td>西安</td></tr>
+        <tr ><td>刘二</td><td>男</td><td>大连</td></tr>
+        <tr ><td>Sofia</td><td>女</td><td>广东</td></tr>
+        <tr ><td>Colby</td><td>男</td><td>长沙</td></tr>
+        <tr ><td>Jesse</td><td>男</td><td>哈尔滨</td></tr>
+        <tr ><td>Monica</td><td>女</td><td>北京</td></tr>
+        <tr ><td>Haley</td><td>女</td><td>上海</td></tr>
+        <tr ><td>Ryan</td><td>男</td><td>宁波</td></tr>
+    </tbody>
+</table>
+</body>
+<script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            $("#screen").on("keyup",function(){
+                $("tbody tr").hide().filter(":contains('"+( $(this).prop("value") )+"')").show();
+
+            });
+
+
+
+        });
+    </script>
+</html>

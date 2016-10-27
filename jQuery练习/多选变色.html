@@ -1,0 +1,71 @@
+<!DOCTYPE>
+<html>
+<head>
+    <style>
+        table{
+            border:0;
+            border-collapse:collapse;
+        }
+        td	{
+            font:normal 12px/17px Arial;
+            padding:2px;
+            width:100px;
+        }
+        th{
+            font:bold 12px/17px Arial;
+            text-align:left;
+            padding:4px;
+            border-bottom:1px solid #333;
+        }
+        .even{
+            background: #FFF38F;
+        }
+        .odd{
+            background:#FFFFEE;
+        }
+        .select{
+            background: #00FFFF;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+        <tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+        </thead>
+    <tbody>
+        <tr><td><input type="checkbox" name="1"></td><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+        <tr><td><input type="checkbox" name="1"></td><td>李四</td><td>女</td><td>浙江杭州</td></tr>
+        <tr><td><input type="checkbox" name="1"></td><td>王五</td><td>男</td><td>湖南长沙</td></tr>
+        <tr><td><input type="checkbox" name="1"></td><td>赵六</td><td>男</td><td>浙江温州</td></tr>
+        <tr><td><input type="checkbox" name="1"></td><td>Rain</td><td>男</td><td>浙江杭州</td></tr>
+        <tr><td><input type="checkbox" name="1"></td><td>Haley</td><td>女</td><td>浙江杭州</td></tr>
+        <tr><td><input type="checkbox" name="1"></td><td>Jesse</td><td>男</td><td> 哈尔滨</td></tr>
+    </tbody>
+</table>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $("tbody tr:even").addClass("even");
+        $("tbody tr:odd").addClass("odd");
+
+        $("tbody tr").on("click",function(){
+
+//                $(this).addClass("select");
+//                $(this).find(":checkbox").prop("checked", true);
+//                console.log($(this).find(":checkbox").prop("checked"));
+                if($(this).hasClass("select")){
+                   $(this).removeClass("select");
+                    $(this).find(":checkbox").prop("checked", false);
+                }else{
+                    $(this).addClass("select");
+                    $(this).find(":checkbox").prop("checked", true);
+                }
+        })
+
+    })
+</script>
+
+</body>
+</html>

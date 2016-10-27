@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title></title>
+    <style>
+    table{
+        border:0;
+        border-collapse:collapse;
+    }
+    td	{
+        font:normal 12px/17px Arial;
+        padding:2px;
+        width:100px;
+    }
+    th{
+        font:bold 12px/17px Arial;
+        text-align:left;
+        padding:4px;
+        border-bottom:1px solid #333;
+        width:100px;
+    }
+    .parent {
+        background: #FFF38F;
+        cursor: pointer;
+    }
+    .selected{
+        background:#FF6500;
+        color:#fff;
+    }
+
+    </style>
+
+</head>
+<body>
+<table>
+    <thead>
+        <tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+    </thead>
+    <tbody>
+        <tr class="parent" id="row_01"><td colspan="3">浙江</td></tr>
+        <tr class="child_row_01"><td>张三</td><td>男</td><td>宁波</td></tr>
+        <tr class="child_row_01"><td>李斯</td><td>女</td><td>杭州</td></tr>
+
+        <tr class="parent" id="row_02"><td colspan="3">湖南</td></tr>
+        <tr class="child_row_02"><td>王五</td><td>男</td><td>长沙</td></tr>
+        <tr class="child_row_02"><td>刘二</td><td>男</td><td>湘潭</td></tr>
+
+        <tr class="parent" id="row_03"><td colspan="3">北京</td></tr>
+        <tr class="child_row_03"><td>Rain</td><td>男</td><td>三里屯</td></tr>
+        <tr class="child_row_03"><td>MAXMAN</td><td>女</td><td>朝阳区</td></tr>
+    </tbody>
+</table>
+<script src="jquery-1.12.4.js" ></script>
+<script >
+
+    $(function(){
+//        $("tr#row_01").on("click",function(){
+//            if($("tr#row_01").hasClass("selected")) {
+//                $("tr.child_row_01").show();
+//                $("tr#row_01").removeClass("selected");
+//            }else{
+//                $("tr.child_row_01").hide();
+//                $("tr#row_01").addClass("selected");
+//            }
+//        });
+//        $("tr#row_02").on("click",function(){
+//            if($("tr#row_02").hasClass("selected")) {
+//                $("tr.child_row_02").show();
+//                $("tr#row_02").removeClass("selected");
+//            }else{
+//                $("tr.child_row_02").hide();
+//                $("tr#row_02").addClass("selected");
+//            }
+//        });
+//        $("tr#row_03").on("click",function(){
+//            if($("tr#row_03").hasClass("selected")) {
+//                $("tr.child_row_03").show();
+//                $("tr#row_03").removeClass("selected");
+//            }else{
+//                $("tr.child_row_03").hide();
+//                $("tr#row_03").addClass("selected");
+//            }
+//        });//第一种：太麻烦
+
+//        $(".parent").on("click",function(){
+//            var $id=$(this).prop("id")
+//            //$(this).addClass('selected').siblings('.child_'+$id).hide();
+//
+//            if($(this).hasClass("selected")){
+//                $(this).removeClass('selected').siblings('.child_'+$id).show();
+//            }else{
+//                $(this).addClass('selected').siblings('.child_'+$id).hide();
+//            }
+//    })//第二种
+
+      $('.parent').on("click",function(){
+          var $id=$(this).prop("id")
+          $(this).toggleClass('selected').siblings('.child_'+$id).toggle();
+      });
+    })
+</script>
+
+</body>
+</html>
