@@ -1,0 +1,187 @@
+#banner{
+    height: 460px;
+    background:#31333f;
+}
+#container{
+    width:1002px;
+    height: 460px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+#content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4012px;
+    height: 460px;
+}
+#content img{
+    float: left;
+}
+#banner span{
+    width: 30px;
+    height: 50px;
+}
+#prev{
+    position: absolute;
+    left: 0;
+    top: 206px;
+    cursor: pointer;
+    float: left;
+    background: url("../images/spirite.png")no-repeat 0 -123px;
+    /*margin-top: 206px;*/
+    z-index: 1;
+}
+#next{
+    position: absolute;
+    top: 206px;
+    right: 0;
+    cursor: pointer;
+    float:right;
+    background: url("../images/spirite.png")no-repeat -68px -123px;
+    /*margin-top: 206px;*/
+    z-index: 1;
+}
+/*banner¦Â*/
+#news p{
+    font-family: Arial Regular;
+    font-size: 26px;
+    cursor: pointer;
+    color: #6d6c6c;
+}
+#p1{
+    position: absolute;
+    float: left;
+    margin-top: 88px;
+    margin-left: 95px;
+}
+#p2{
+    position: absolute;
+    float: left;
+    margin-top: 88px;
+    margin-left: 428px;
+}
+#p3 {
+    position: absolute;
+    float: left;
+    margin-top: 88px;
+    margin-left: 760px;
+}
+#news{
+    position: relative;
+    width: 1002px;
+    height: 490px;
+    margin: 0 auto;
+    /*background: #888888;*/
+}
+#news span{
+    width: 102px;
+    height: 102px;
+}
+#brush{
+    position: absolute;
+    top: 146px;
+    left: 118px;
+    float:left;
+    background: url("../images/spirite.png")no-repeat 0 -348px;
+}
+#link{
+    position: absolute;
+    top: 146px;
+    left: 445px;
+    float:left;
+    background: url("../images/spirite.png")no-repeat -134px -348px;
+}
+#phone{
+    position: absolute;
+    top: 146px;
+    left: 780px;
+    float:left;
+    background: url("../images/spirite.png")no-repeat -270px -348px;
+}
+/*newsÎ²*/
+#works{
+    height: 500px;
+    margin: 0 auto;
+    background: #e2e7ed;
+}
+#content2{
+    position: relative;
+    width: 1002px;
+    margin: 0 auto;
+}
+#ourwork{
+    height: 70px;
+    font-size: 28px;
+    font-family: Arial Regular;
+    line-height: 70px;
+}
+#works ul{
+    width: 1002px;
+    height: 200px;
+}
+#works ul li{
+    width: 250.5px;
+    height: 200px;
+    float: left;
+}
+/*worksÎ²*/
+
+#clients{
+    width: 1002px;
+    height: 154px;
+    margin: 0 auto;
+}
+#ourclients{
+    height: 50px;
+    font-size: 28px;
+    font-family: Arial Regular;
+    line-height:50px;
+}
+#container2{
+    position: relative;
+    width: 1002px;
+    overflow: hidden;
+    height: 104px;
+}
+
+#LB{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2004px;
+    height: 104px;
+}
+#LB  img{
+    float:left;
+}
+#clients span{
+    width: 30px;
+    height: 50px;
+}
+#before{
+    position: absolute;
+    left: 0;
+    top: 27px;
+    cursor: pointer;
+    float: left;
+    background: url("../images/spirite.png")no-repeat 0 -41px;
+    /*margin-top: 206px;*/
+    z-index: 1;
+}
+#after{
+    position: absolute;
+    top:27px;
+    right: 0;
+    cursor: pointer;
+    float:right;
+    background: url("../images/spirite.png")no-repeat -37px -41px;
+    /*margin-top: 206px;*/
+    z-index: 1;
+}
+/*clientsÎ²*/
+#footer{
+    height: 176px;
+    background:#31333f ;
+}

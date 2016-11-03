@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+
+
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    border: 0;
+}
+#wrap{
+    width: 1002px;
+    margin: 0 auto;
+    height: 120px;
+    /*background: #ccc;*/
+}
+#wrap img{
+    margin-top: 38px;
+}
+#logo{
+    cursor: pointer;
+    float: left;
+    margin-right: 145px;
+}
+#nav{
+    margin-top: 53px;
+    float: left;
+}
+#nav li{
+    float: left;
+    padding:0 25px;
+    border-right: 1px solid;
+
+}
+#nav a{
+    font-family: Arial Regular;
+    font-size: 14px;
+    cursor: pointer;
+    color: #6d6c6c;
+}
+#nav li.last{
+    border-right:none;
+}
+#header{
+    height: 120px;
+
+}
+#input-search{
+    margin-top: 50px;
+    float: right;
+    background: #f2f3f7;
+}
+#input-search span{
+    width: 22px;
+    height: 30px;
+    float: left;
+    background: #f2f3f7;
+    background: url("../images/spirite.png") no-repeat 3px 9px;
+}
+
+#input-search input{
+    outline: none;
+    border: none;
+    background: #f2f3f7;
+    width: 108px;
+    height: 30px;
+    float: left;
+
+}
+#nav a.selected{
+    color:#00aeff ;
+}
+/*headerβ*/
