@@ -60,7 +60,7 @@ img{
     height: 30px;
     float: left;
     background: #f2f3f7;
-    background: url("../images/spirite.png") no-repeat 3px 9px;
+    background: url("../images/spirite1.png") no-repeat 3px 9px;
 }
 
 #input-search input{
@@ -70,7 +70,6 @@ img{
     width: 108px;
     height: 30px;
     float: left;
-
 }
 #nav a.selected{
     color:#00aeff ;

@@ -29,7 +29,7 @@
     top: 206px;
     cursor: pointer;
     float: left;
-    background: url("../images/spirite.png")no-repeat 0 -123px;
+    background: url("../images/spirite1.png")no-repeat 0 -123px;
     /*margin-top: 206px;*/
     z-index: 1;
 }
@@ -39,7 +39,7 @@
     right: 0;
     cursor: pointer;
     float:right;
-    background: url("../images/spirite.png")no-repeat -68px -123px;
+    background: url("../images/spirite1.png")no-repeat -68px -123px;
     /*margin-top: 206px;*/
     z-index: 1;
 }
@@ -84,21 +84,21 @@
     top: 146px;
     left: 118px;
     float:left;
-    background: url("../images/spirite.png")no-repeat 0 -348px;
+    background: url("../images/spirite1.png")no-repeat 0 -348px;
 }
 #link{
     position: absolute;
     top: 146px;
     left: 445px;
     float:left;
-    background: url("../images/spirite.png")no-repeat -134px -348px;
+    background: url("../images/spirite1.png")no-repeat -134px -348px;
 }
 #phone{
     position: absolute;
     top: 146px;
     left: 780px;
     float:left;
-    background: url("../images/spirite.png")no-repeat -270px -348px;
+    background: url("../images/spirite1.png")no-repeat -270px -348px;
 }
 /*newsβ*/
 #works{
@@ -166,7 +166,7 @@
     top: 27px;
     cursor: pointer;
     float: left;
-    background: url("../images/spirite.png")no-repeat 0 -41px;
+    background: url("../images/spirite1.png")no-repeat 0 -41px;
     /*margin-top: 206px;*/
     z-index: 1;
 }
@@ -176,7 +176,7 @@
     right: 0;
     cursor: pointer;
     float:right;
-    background: url("../images/spirite.png")no-repeat -37px -41px;
+    background: url("../images/spirite1.png")no-repeat -37px -41px;
     /*margin-top: 206px;*/
     z-index: 1;
 }
