@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #frame{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            border: 1px solid #f2f3f7;
+            border-radius: 50%;
+            background: #CCCCCC;
+        }
+        #dial li{
+            width: 2px;
+            height: 4px;
+            background: #6d6c6c;
+            position: absolute;
+            top: 0;
+            left: 99px;
+            -webkit-transform-origin:center 100px;
+        }
+        #dial li:nth-child(5n+1){
+            height: 8px;
+        }
+        #minute,#hour,#second{
+            position: absolute;
+            -webkit-transform-origin:center top;
+        }
+        #second{
+            left: 99px;
+            top: 50%;
+            width: 2px;
+            height: 80px;
+            background: red;
+        }
+        #minute{
+              left: 98px;
+              top: 50%;
+              width: 4px;
+              height: 70px;
+              background:#ffcccc;
+          }
+        #hour{
+            left: 97px;
+            top: 50%;
+            width:6px;
+            height: 50px;
+            background: #00FFFF;
+        }
+    </style>
+</head>
+<body>
+    <div id="frame">
+        <ul id="dial">
+
+        </ul>
+        <div id="second"></div>
+        <div id="minute"></div>
+        <div id="hour"></div>
+    </div>
+    <script>
+        var oDial=document.getElementById('dial');
+        var oSecond=document.getElementById('second');
+        var oMinute=document.getElementById('minute');
+        var oHour=document.getElementById('hour');
+        var html='';
+        for(var i=0;i<60;i++){
+            html+="<li style='-webkit-transform: rotate("+6*i+"deg)'></li>"
+        }
+        oDial.innerHTML=html;//刻度
+
+        var date,second,minute,hour;
+        function run(){
+            date=new Date();
+            second=date.getSeconds();
+            minute=date.getMinutes();
+            hour=date.getHours()+minute/60;
+
+            oSecond.style.WebkitTransform="rotate("+second*6+"deg)";
+            oMinute.style.WebkitTransform="rotate("+minute*6+"deg)";
+            oMinute.style.WebkitTransform="rotate("+hour*30+"deg)"
+        }
+        run();
+        setInterval(run,1000);
+    </script>
+</body>
+</html>
