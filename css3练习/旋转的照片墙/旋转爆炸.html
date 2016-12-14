@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 750px;
+            height: 600px;
+            position: relative;
+            margin: 80px auto;
+        }
+        #bg{
+            position: relative;
+            width: 750px;
+            height: 500px;
+            /*background: #ff0000;*/
+        }
+        #bg div{
+            width: 125px;
+            height: 125px;
+            position: absolute;
+        }
+        #btn{
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -90px;
+        }
+        #btn button{
+            width: 60px;
+            height: 40px;
+            cursor: pointer;
+        }
+        #rotate{
+            background: #0000ff;
+            margin-right: 60px;
+        }
+        #boom{
+            background: #ff0000;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="bg"></div>
+        <div id="btn">
+            <button id="rotate">翻转</button>
+            <button id="boom">爆炸</button>
+        </div>
+    </div>
+    <script>
+        var oContainer=document.getElementById('container');
+        var oBg=oContainer.getElementById('bg');
+        var oRot=oContainer.getElementById('rotate');
+        var oBoo=oContainer.getElementById('boom');
+        var iNow=0;
+        var flag=true;
+
+        oRot.onclick=function(){
+            if(flag){
+                flag=false;
+                iNow++;
+                for(var i=0;i<4;i++){
+                    for(var j=0;j<6;j++){
+                        var oDiv=document.createElement('div');
+                        oDiv.style.left=j*125+"px";
+                        oDiv.style.top=i*125+"px";
+                        oDiv.style.background="url(img/"+(iNow+1)+".jpg) px px";
+                        oBg.appendChild(oDiv);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

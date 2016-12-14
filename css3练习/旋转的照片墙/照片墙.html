@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            width:100%;
+            height:100%;
+        }
+        #container{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: url("img/bg.jpg");
+        }
+        #container .img{
+            position: absolute;
+            width: 125px;
+            height: 125px;
+            border: 5px solid #FFFFFF;
+            top: -150px;
+            left: -150px;
+            -webkit-transition: all 1.5s ease-in-out;
+        }
+        #container .img span{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0;
+            -webkit-transition: opacity 1s ease-in-out;
+        }
+        #next,#prev{
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            top: 50%;
+            margin-top: -40px;
+            display: none;
+            cursor: pointer;
+        }
+        #next{
+            border-radius: 8px 0 0 8px;
+            background: url("img/next.png") center no-repeat #FFFFFF;
+            right: 0;
+        }
+        #prev{
+            border-radius: 0px 8px 8px 0px;
+            background: url("img/prev.png") center no-repeat #FFFFFF;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <div id="prev"></div>
+    <div id="next"></div>
+
+    <script>
+        var oContainer=document.getElementById('container');
+        var oNext=document.getElementById('next');
+        var oPrev=document.getElementById('prev');
+        var sum=0;
+
+        for(var i=0;i<24;i++){
+            var oImg=new Image();
+            oImg.onload=function(){
+                sum++;
+                if(sum ==48){
+                    loadSuccess();
+                }
+            };
+            oImg.src='img/'+(i+1)+'.jpg';
+        }
+        for(var i=0;i<24;i++){
+            var oImg=new Image();
+            oImg.onload=function(){
+                sum++;
+                if(sum ==48){
+                    loadSuccess();
+                }
+            };
+            oImg.src='img/thumbs/'+(i+1)+'.jpg';
+        }//判断大+小一共48张图片是否加载完毕，如已完毕，则执行loadSuccess方法。
+
+        var colWidth=(oContainer.offsetWidth-6*125)/7;
+        var rowHeight=(oContainer.offsetHeight-4*125)/5;//图片进入时的行高列宽
+        var index=0;
+        function loadSuccess(){
+            //双重for循环控制每张图片位置
+            for(var i=0;i<4;i++){
+                for(var j=0;j<6;j++){
+                    var oDiv=document.createElement('div');
+                    oDiv.className='img';
+                    oDiv.innerHTML='<span></span>';
+                    oContainer.appendChild(oDiv);
+
+                    oDiv.pos={
+                        left:colWidth+j*(125+colWidth),
+                        top:rowHeight+i*(125+rowHeight)
+                    };
+                    oDiv.colRow={
+                        col:j,
+                        row:i
+                    };//每个图片的行列数
+                    oDiv.style.background = 'url(img/thumbs/'+(index+1)+'.jpg)';
+                    oDiv.imgIndex=index;//每个图片的索引
+                    oDiv.onclick=fn;//给每一个aDiv加一个点击事件
+                    index++;
+                }
+            }
+            var aDiv=oContainer.getElementsByTagName('div');
+            var timer=setInterval(function(){
+//                console.log(index);
+                index--;//此时的index为24，所以需要index-- 变为23；
+                aDiv[index].style.left=aDiv[index].pos.left+'px';
+                aDiv[index].style.top=aDiv[index].pos.top+'px';
+                aDiv[index].style.WebkitTransform='rotate('+(Math.random()*40-20)+'deg)';
+                if(index==0){
+                    console.log(index);
+                    clearInterval(timer);
+                }
+            },100);
+
+            var flag=true;
+            var now=0;
+            function fn(){//aDiv的点击事件
+                var width=(oContainer.offsetWidth-750)/2;
+                var height=(oContainer.offsetHeight-500)/2;
+                if(flag){//用标识位判定图片此时是分开的还是大图
+                    for(var i=0;i<24;i++){
+                        aDiv[i].style.left = aDiv[i].colRow.col * 125 + width + 'px';
+                        aDiv[i].style.top = aDiv[i].colRow.row * 125 + height + 'px';
+
+                        aDiv[i].style.WebkitTransform='rotate(0deg)';
+                        aDiv[i].style.border='1px solid #fff';
+
+                        var aSpan=aDiv[i].getElementsByTagName('span')[0];
+                        aSpan.style.opacity=1;
+                        var spanLeft= -aDiv[i].colRow.col * 125;
+                        var spanTop=-aDiv[i].colRow.row * 125;
+                        aSpan.style.background="url(img/"+(this.imgIndex+1)+".jpg) "+spanLeft+"px "+spanTop+"px no-repeat";
+                    }
+                    now = this.imgIndex;
+                    oNext.style.display = 'block';
+                    oPrev.style.display = 'block';
+                }else{
+                    for(var i=0;i<24;i++) {
+                        aDiv[i].style.left = aDiv[i].pos.left + 'px';
+                        aDiv[i].style.top = aDiv[i].pos.top + 'px';
+
+                        aDiv[i].style.WebkitTransform = "rotate(" + (Math.random() * 40 - 20) + "deg)";
+                        aDiv[i].style.border = "5px solid #fff";
+                        var oSpan = aDiv[i].getElementsByTagName('span')[0];
+                        oSpan.style.opacity = 0;
+                    }
+                    oNext.style.display = 'none';
+                    oPrev.style.display = 'none';
+                }
+                flag=!flag;
+            }
+
+            oNext.onclick=oPrev.onclick=function(){//两个点击事件大致相同
+                if(this==oNext){
+                    now++;
+                    if(now == aDiv.length){
+                        now=0;
+                    }
+                }else{
+                    now--;
+                    if(now==-1){
+                        now=aDiv.length-1;
+                    }
+                }
+                var a=[];
+                for(var i=0;i<24;i++){
+                    a.push(i);
+                }
+                a.sort(function(){
+                    return Math.random()-0.5;
+                });//生成一个乱序数组
+//                console.log(a)
+                var timer2=setInterval(function(){
+                    var random= a.pop();
+                    console.log(random);
+                    var aSpan=aDiv[random].getElementsByTagName('span')[0];
+                   // console.log(-aDiv[random].colRow.col); i5
+                    var spanLeft = -aDiv[random].colRow.col * 125;
+                    var spanTop = -aDiv[random].colRow.row * 125;
+                    aSpan.style.background="url(img/"+(now+1)+".jpg) "+spanLeft+"px "+spanTop+"px no-repeat";
+                    if(a.length==0){
+                        clearInterval(timer2);
+                    }
+                },30);
+            }
+        }
+    </script>
+</body>
+</html>
