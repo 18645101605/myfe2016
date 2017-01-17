@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .col{
+            color:red;
+        }
+        p{
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="text" id='in' v-model="mes" v-on:keyup="search">
+    <button  v-on:click="add"/>leave a message</button>
+    <template v-for="item in showItems">
+        <p v-bind:class="{col:item.active}" v-on:click="{item.active=!item.active}">{{item.value}}</p>
+    </template>
+</div>
+<script src="vue.js"></script>
+<script>
+    var oIn=document.getElementById('in');
+    var v=new Vue({
+        el:'#app',
+        data:{
+            items:[],
+            mes:'',
+            showItems:[]
+        },
+        methods:{
+            add:function(){
+                var i=this.mes.trim();
+                if(i){
+                    this.items.push({value:i,active:false});
+                    this.mes='';
+                }
+                this.items.sort(function(a,b){
+                    return a.value- b.value;
+                });
+                this.showItems=this.items;
+            },
+            search:function(){
+                v.showItems= v.items.filter(function(obj){
+                    return obj.value.includes(v.mes);
+                });
+            }
+
+        }
+    });
+</script>
+</body>
+</html>

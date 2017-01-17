@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div  id="app">
+    <template v-for="(item,index) in items">
+        <p>{{index}}</p>
+        <p>{{item.name}}</p>
+    </template>
+</div>
+<script src="vue.js"></script>
+<script>
+    var v=new Vue({
+        el:'#app',
+        data:{
+            items:[
+            {name:'zs'},
+            {name:'ls'},
+            {name:'ww'}
+            ]
+        }
+});
+</script>
+</body>
+</html>
