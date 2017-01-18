@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .qwe{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.min.js"></script>
+    <script src="react-15.3.1/browser.min.js"></script>
+    <script type="text/babel">
+        var Test=React.createClass({
+                render:function(){
+                    return (
+                            <h1 className="qwe">hello world!</h1>
+                    )
+                }
+        });
+        var Test2=React.createClass({
+            render:function(){
+                return (//必须保证只有一个闭合标签，有多个的话用div包上。
+                    <div>
+                        <Test/>
+                        <h1>again?</h1>
+                    </div>
+                )
+            }
+        });
+        ReactDOM.render(
+                <div>
+                    <Test/>
+                    <Test2/>
+                </div>,
+                document.getElementById('container')
+        );
+    </script>
+</body>
+</html>
